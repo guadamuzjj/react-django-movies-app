@@ -1,15 +1,20 @@
-# -*- coding: utf-8 -*-
-from django.conf.urls import url
+# # -*- coding: utf-8 -*-
+from django.conf.urls import url, include
+from rest_framework import routers, serializers, viewsets
 
-from . import views
+from .views import MovieViewSet, MovieRatingView, MovieCommentView
 
-app_name = "movies"
+app_name = 'api'
 
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'movies', MovieViewSet, basename='user')
+
+# Wire up our API using automatic URL routing.
 urlpatterns = [
-    url(r'^$', view=views.MovieListView.as_view(), name='index'),
-    url(r'^(?P<id>[\d\-]+)/$', view=views.MovieDetailView.as_view(), name='detail'),
-    url(r'^create/$', view=views.MovieCreateView.as_view(), name='create'),
-    url(r'^update/(?P<id>[\d\-]+)/$', view=views.MovieUpdateView.as_view(), name='update'),
-    url(r'^delete/(?P<id>[\d\-]+)/$', view=views.MovieDeleteView.as_view(), name='delete'),
-    url(r'^rating/(?P<id>[\d\-]+)/$', view=views.MovieRatingView.as_view(), name='rating'),
+    url(r'^movies/(?P<id>[\d\-]+)/rating/$', MovieRatingView),
+    url(r'^movies/(?P<id>[\d\-]+)/comment/$', MovieCommentView)
 ]
+
+urlpatterns += router.urls
