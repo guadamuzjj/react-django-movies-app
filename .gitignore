@@ -3,3 +3,5 @@ __pycache__
 *.db
 venv/
 movies_rating_app.egg-info
+node_modules
+main.js
