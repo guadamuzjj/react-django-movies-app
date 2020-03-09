@@ -27,6 +27,7 @@ DJANGO_APPS = (
 
     # Admin
     'django.contrib.admin',
+    'rest_framework',
 )
 THIRD_PARTY_APPS = ()
 
@@ -45,6 +46,12 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+}
 
 MIGRATION_MODULES = {
     'sites': 'moviesapp.contrib.sites.migrations'
