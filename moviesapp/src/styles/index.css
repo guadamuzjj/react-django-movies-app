@@ -1,0 +1,32 @@
+/* Containers */
+.header {
+  background-color: #f9a828;
+  color: #fff;
+}
+
+.movie-widget {
+  width: 280px;
+}
+
+@media (max-width: 768px){
+  .movie-widget {
+    width: 100%;
+  }
+}
+
+/* Helpers */
+.text-xs {
+  font-size: 12px;
+}
+
+.text-sm {
+  font-size: 16px;
+}
+
+.text-md {
+  font-size: 20px;
+}
+
+.text-lg {
+  font-size: 24px;
+}
